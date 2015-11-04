@@ -1,18 +1,80 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-  <title>Vagrant</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>Vagrant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
+
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+ <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
-<%= yield %>
+ <div class="navbar navbar-fixed-top">
+     <div class="navbar-inner">
+         <div class="container">
+             <a class="btn btn-primary btn-dropnav" data-toggle="collapse" data-target=".nav-collapse">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </a>
+             <a class="brand" href="index.html">Bounce</a>
 
+             <div class="nav-collapse collapse">
+                 <ul class="nav pull-right">
+                     <li class="active"><a href="index.html">Home</a></li>
+                     <li></li>
+                     <li><a href="about.html">About</a></li>
+                     <li><a href="features.html">Features</a></li>
+                     <li><a href="pricing.html">Pricing</a></li>
+                     <li><a href="login.html">Login</a></li>
+                     <li><a href="register.html">Register</a></li>
+                     <li></li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+ </div>
+
+ <%= yield %>
+ <div id="landing">
+     <div class="container">
+         <div class="row">
+             <div class="span5">
+                 <h1>Take your product to new heights.</h1>
+
+                 <p>Bounce is a modern and minimalistic template perfect for showing off your latest product or service
+                     and its features. Bounce comes with many pages and features that make it a wonderful starting point
+                     to create something even more unique.</p>
+
+                 <p><a href="#" class="btn btn-primary btn-action">Get Started Now</a></p>
+             </div>
+             <div class="span7">
+
+             </div>
+         </div>
+     </div>
+ </div>
+
+ <div id="content" class="txt-middle">
+
+ </div>
+
+
+ <div id="copywrite">
+     <div class="container">
+         <div class="row">
+             <div class="span12">
+                 <p>&copy; 2012 Bounce Template
+                     <span id="totop" class="pull-right">Back to Top <i class="icon-arrow-up"></i></span></p>
+             </div>
+         </div>
+     </div>
+ </div>
 </body>
 </html>

@@ -1,3 +1,3 @@
 class Person < ActiveRecord::Base
-  belong_to :opening
+  belongs_to :opening
 end
