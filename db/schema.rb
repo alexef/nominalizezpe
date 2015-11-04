@@ -11,27 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104212629) do
+ActiveRecord::Schema.define(version: 20151104224338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "openings", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "encoded_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "people", force: :cascade do |t|
     t.string   "status"
     t.string   "name"
+    t.string   "encoded_name"
     t.string   "picture_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "opening_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "people", ["opening_id"], name: "index_people_on_opening_id", using: :btree
+  create_table "people_openings", id: false, force: :cascade do |t|
+    t.integer "person_id"
+    t.integer "opening_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -61,5 +65,4 @@ ActiveRecord::Schema.define(version: 20151104212629) do
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
-  add_foreign_key "people", "openings"
 end
