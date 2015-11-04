@@ -27,3 +27,4 @@ production:
   host: localhost
   database: nominalizari
   user: postgres
+  password:
