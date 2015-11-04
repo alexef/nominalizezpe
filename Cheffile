@@ -1,0 +1,10 @@
+site "http://community.opscode.com/api/v1"
+
+cookbook 'apt'
+cookbook 'build-essential'
+cookbook 'mongodb'
+cookbook 'ruby_build'
+cookbook 'nodejs', git: 'http://github.com/mdxp/nodejs-cookbook'
+cookbook 'rbenv', git: 'https://github.com/ianbrown78/chef-rbenv'
+cookbook 'nano', '~> 1.0.3'
+cookbook 'postgresql'
