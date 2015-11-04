@@ -409,3 +409,11 @@ ul.plans {
     display: none;
   }  
 }
+
+.alert {
+    display: none;
+}
+
+.notice {
+    display: none;
+}
