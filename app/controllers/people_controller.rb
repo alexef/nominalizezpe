@@ -26,14 +26,15 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    @person.user = current_user
 
     respond_to do |format|
-      if @person.save
+      if current_user.people.count < 5 && @person.save
         format.html { redirect_to result_path, notice: 'Iti multumim pentru propunere. Aceasta va aparea public imediat ce va fi moderata!' }
         format.json { render :show, status: :created, location: @person }
       else
-        format.html { render :new }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
+        format.html { redirect_to result_path, notice: 'Poti propune doar 5 persoane! Daca nu ai depasit aceasta limita te rugam sa ne contactezi!' }
+        format.json { render json: @person.errors, status: :unprocessable_entity}
       end
     end
   end

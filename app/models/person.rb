@@ -1,5 +1,7 @@
 class Person < ActiveRecord::Base
   has_and_belongs_to_many :openings
+  belongs_to :user
+
   before_create :initialize_inferred_fields
 
   def name
@@ -10,7 +12,6 @@ class Person < ActiveRecord::Base
   protected
   def initialize_inferred_fields
     self.encoded_name = name.downcase.strip.gsub(' ','-').gsub(/[^\w-]/, '')
-    puts encoded_name
     self.status = 'new'
   end
 end
