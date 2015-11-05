@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   has_and_belongs_to_many :openings
   belongs_to :user
+  has_many :votes
 
   before_create :initialize_inferred_fields
 

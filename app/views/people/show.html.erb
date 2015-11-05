@@ -3,7 +3,7 @@
     <div class="row">
       <div class="span9">
         <h1><%= @person.name %>
-          <small>(2 voturi)</small>
+          <small><%= @person.votes.count %> voturi</small>
         </h1>
 
         <div class="caption">
@@ -42,15 +42,19 @@
   <div class="container">
     <div class="row">
       <div class="span12">
-
-        <p id="notice"><%= notice %></p>
-
-        <h5>Votează</h5>
-
-        <form action="" method="">
-          <textarea></textarea>
-          <button type="submit" class="btn btn-primary">Votează</button>
-        </form>
+          <h5>Votează</h5>
+          <%= form_for Vote.new do |f| %>
+           <%= f.hidden_field :person_id, :value => @person.id %>
+           <div class="field padding-top">
+               <%= f.text_area :comment, :placeholder => 'Motivatie' %>
+           </div>
+           <div class="field padding-top">
+               <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
+           </div>
+           <div class="actions inline" style="padding-top: 20px; float: right">
+               <%= f.submit 'Votează', :class => 'btn btn-primary' %>
+           </div>
+         <% end %>
       </div>
     </div>
   </div>
