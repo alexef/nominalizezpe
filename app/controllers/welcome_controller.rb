@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @people = Person.where(status: "ok").take(10)
+    @people = Person.where(status: "ok").joins(:votes).group("people.id").order("count(*) desc").take(10)
   end
 
   def terms
