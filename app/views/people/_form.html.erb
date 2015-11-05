@@ -39,7 +39,7 @@
 
  <div class="field padding-top inline">
      <%= f.label :opening_ids, "Pozitii pentru care persoana este propusa: " %>
-     <%= f.collection_select :opening_ids, Opening.all, :id, :name, {}, {:multiple => true, :style=>'width: 50%'} %>
+     <%= f.collection_select :opening_ids, Opening.all, :id, :name, {}, {:multiple => true, :style=>'width: 100%'} %>
  </div>
   <div class="actions inline" style="padding-top: 20px; float: right">
     <%= f.submit 'Propune', :class => 'btn btn-primary' %>

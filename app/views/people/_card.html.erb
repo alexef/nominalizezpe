@@ -8,7 +8,9 @@
     <% if links %>
     <div class="social">
       <ul class="unstyled">
-        <li><a class="facebook" href=""><i class="icon-facebook-sign"></i></a></li>
+        <% if person.fb_url? %>
+            <li><a class="facebook" href="<%= person.fb_url %>"><i class="icon-facebook-sign"></i></a></li>
+        <% end %>
       </ul>
     </div>
     <% end %>

@@ -6,28 +6,28 @@
           <small><%= @person.votes.count %> voturi</small>
         </h1>
 
-        <div class="caption">
+        <div>
           <h4>Despre</h4>
 
           <p><%= @person.description %></p>
-
-          <div class="social">
-            <ul class="unstyled">
-              <% if @person.fb_url? %>
-                  <li>
-                    <a class="facebook" href="<%= @person.fb_url %>"><i class="icon-facebook-sign"></i></a>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
+        </div>
+        <div class="social">
+          <p>Pagini:
+          <% if @person.fb_url? %>
+              <a href="<%= @person.fb_url %>">facebook</a>
+          <% end %>
+          <% if @person.linkedin_url? %>
+                <a href="<%= @person.linkedin_url %>">linkedin</a>
+          <% end %>
+          </p>
         </div>
         <div>
-          <h4>Propus pentru:</h4>
+          <h4>Pozitia</h4>
 
           <ul>
-              <% @person.openings.each do |op| %>
-               <li><%= op.name %> - <%= Vote.where(:person => @person, :opening => op).count %> voturi</li>
-              <% end %>
+            <% @person.openings.each do |op| %>
+                <li><%= op.name %> - <%= Vote.where(:person => @person, :opening => op).count %> voturi</li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -65,15 +65,16 @@
                 </div>
                 <% end %>
             <% end %>
-           <% else %>
-           <div class="txt-middle">
-             <p>Te rugam sa te loghezi cu contul de Facebook pentru a vota!</p>
-             <br/>
-             <p>O data logat vei avea dreptul la maxim 5 voturi.</p>
-             <br/>
-           </div>
-           <%= link_to '', user_omniauth_authorize_path(:facebook), :class => 'fb-login-button' %>
-           <% end %>
+        <% else %>
+            <div class="txt-middle">
+              <p>Te rugam sa te loghezi cu contul de Facebook pentru a vota!</p>
+              <br/>
+
+              <p>O data logat vei avea dreptul la maxim 5 voturi.</p>
+              <br/>
+            </div>
+            <%= link_to '', user_omniauth_authorize_path(:facebook), :class => 'fb-login-button' %>
+        <% end %>
       </div>
     </div>
   </div>
