@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'moderator/index'
+  get 'moderator/:id/ok' => 'moderator#make_ok', as: :make_ok
+  get 'moderator/:id/reject' => 'moderator#make_reject', as: :make_reject
+  get 'moderator/:id/new' => 'moderator#make_new', as: :make_new
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
