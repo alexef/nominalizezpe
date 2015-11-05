@@ -2,40 +2,57 @@
 
 <html lang="en">
 <head>
-    <title>propun&#9679;pe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+  <title>propun&#9679;pe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
 
 <body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
 
- <div class="navbar navbar-fixed-top">
-     <div class="navbar-inner">
-         <div class="container">
-             <a class="btn btn-primary btn-dropnav" data-toggle="collapse" data-target=".nav-collapse">
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-             </a>
-             <a class="brand" href="/">propun&#9679;pe</a>
+<p class="alert"><%= alert %></p>
 
-             <div class="nav-collapse collapse">
-                 <ul class="nav pull-right">
-                     <li class="active"><a href="<%= new_person_path %>">Propune</a></li>
-                     <li><a href="/people">Candidati</a></li>
-                     <li><a href="/terms">Conditii</a></li>
-                     <li><a href="/about">Despre</a></li>
-                 </ul>
-             </div>
-         </div>
-     </div>
- </div>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-primary btn-dropnav" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">propun&#9679;pe</a>
 
- <%= yield %>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+          <li class="
+            <% if controller.controller_name == "people" && controller.action_name == "new" %>active
+          <% end %>"><a href="<%= new_person_path %>">PROPUNE</a></li>
+          <li class="
+            <% if controller.controller_name == "people" && controller.action_name == "index" %>active
+          <% end %>"><a href="/people">CANDIDATI</a></li>
+          <li class="
+            <% if controller.controller_name == "welcome" && controller.action_name == "terms" %>active
+          <% end %>"><a href="/terms">CONDITII</a></li>
+          <li class="
+            <% if controller.controller_name == "welcome" && controller.action_name == "about" %>active
+          <% end %>"><a href="<%= about_path %>">NOI</a></li>
+          <li class="
+            <% if controller.controller_name == "welcome" && controller.action_name == "contact" %>active
+          <% end %>"><a href="<%= contact_path %>">CONTACT</a></li>
+          <li>
+            <% if user_signed_in? %>
+                <%= link_to "log out", destroy_user_session_path, :method => :delete %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= yield %>
 
 
 </body>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   match '/terms' => 'welcome#terms', via: [:get]
   match '/about' => 'welcome#about', via: [:get]
+  match '/contact' => 'welcome#contact', via: [:get]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

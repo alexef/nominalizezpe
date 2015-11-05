@@ -1,37 +1,43 @@
 <div id="landing">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <h1>Mesaj titlu</h1>
+  <div class="container">
+    <div class="row">
+      <div class="span6">
+        <h1>Manifest</h1>
 
-                <p>Lorem ipsum dolor sit amet elementum. Non parturient felis. Vel lectus et in suspendisse tellus elit ligula fermentum enim quam pretium. Non nunc a. Sit ipsum cras. Tortor lectus eget dictum ut tortor consequat sapien vitae. Parturient morbi neque. Sed vivamus eget. Elit ut nulla vulputate penatibus nisl. Metus facilisis amet. Suscipit torquent nulla. Nec odio con quisque pellentesque sit dis suspendisse vestibulum a ornare praesent ullamcorper dictumst nec massa dolor lorem non sodales vehicula aliquam in eu ante facilisis bibendum dolor aut faucibus harum neque nisl. Leo maecenas sed gravida ut integer. Non ad morbi. Ut habitasse eget ultrices lacus magnis ultrices lacus ultrices. Non nec sed. Sed eu id. Erat vitae maecenas. Quam tristique neque. Porro vel ante.</p>
-                <p>Aliquet amet vulputate fames aliquam pellentesque libero tempor diam bibendum eu tincidunt massa tempus vestibulum nibh nullam neque. Nulla lorem magna malesuada viverra consectetuer magna dapibus quisque. At sapien posuere. Ac id rutrum. Leo feugiat vitae. Parturient magni quis. Nec ipsum interdum eu velit phasellus elit platea ullamcorper mauris ut sed et fringilla vitae interdum nibh nisl neque ridiculus nesciunt. Libero cursus eu. Lorem magna volutpat phasellus sodales mattis. Quisque cras arcu. Eget risus scelerisque sollicitudin fames faucibus. Vehicula elit phasellus. Tempus erat at. Nibh id et. Quis cras nibh.</p>
+        <p>“Nu avem lideri.” Asta e zidul de care s-a lovit orice initiativa pana acum.</p>
+        <p>Pe de alta parte:</p>
+        <p>“E super tare judecatorul ala, ala ar fi un ministru bun al justitiei.”</p>
+        <p>“E tare directorul ala de spital, ar fi minunat ca ministru al sanatatii.”</p>
+        <p>Aa… auzi o idee: haideti sa gasim lideri? Ce ziceti ce solutia asta nebuneasca?</p>
+        <p>Mai concret, avem nevoie de o lista de lideri, pe specializari: justitie, sanatate, turism etc.</p>
+        <p>Daca nu vrei sa le zici lideri, zi-le reprezentanti ai societatii civile, zi-le elite.</p>
+        <p>Acesti lideri vor fi trimisi de noi, strada, sa asiste reconstructia guvernului.</p>
+        <p>Sa se consulte cu prededintele de acum. Si primul-ministru, oricine va fi el. Si minsitrii de acum.</p>
+        <p>Vehiculul dintre societate si guvernanti.</p>
+        <br />
+        <p>Semnat, niste oameni. <a href="<%= about_path %>">NOI</a>.</p>
 
-                <p>Ut hac sed donec bibendum lacus possimus feugiat etiam. Metus sit et mi pellentesque condimentum ut arcu tortor gravida optio eu. Mi aliquam nibh eu in massa pharetra at erat. Porta sociis ridiculus enim ut enim. Nulla mauris vel. Dictum amet ullamcorper leo pretium non. Hendrerit lorem pede ut malesuada senectus. Arcu purus nonummy. Ultricies in integer. Ut maecenas sint. Sed ut accumsan. Elit neque lacinia vivamus placerat eu eros non suscipit rutrum nec enim commodo neque mauris. Ante aenean sit luctus aliquam accumsan. Vel tincidunt ullamcorper. Lacus vel quam.</p>
-            </div>
-        </div>
-    </div>
-</div>
+      </div>
+      <div class="span6">
+        <ul class="thumbnails">
+          <li class="span2">
+            <% @people.each do |person| %>
 
-<div class="container">
-  <div class="row">
-    <div class="span12">
-      <h2 class="txt-middle">Top 10</h2>
-      <hr class="dashed">
-    </div>
-  </div>
-  <div class="row">
-    <div class="span12">
-      <ul class="thumbnails">
-        <li class="span2">
-          <% @people.each do |person| %>
+                <%= render "people/card", :person => person, :links => false %>
 
-          <%= render "people/card", :person => person %>
-
-
-          <% end %>
-        </li>
-      </ul>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
+
+<!--<div class="container">-->
+  <!--<div class="row">-->
+    <!--<div class="span12">-->
+      <!--<h2 class="txt-middle">Top 10</h2>-->
+      <!--<hr class="dashed">-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->

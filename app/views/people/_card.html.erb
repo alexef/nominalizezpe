@@ -1,16 +1,15 @@
 <div id="team" class="thumbnail">
-  <img alt="" src="http://quickimage.it/300x180">
+  <img alt="" src="http://quickimage.it/300x300">
   <div class="caption">
     <h4>
-      <a href=""><%= person.name %></a>
+      <a href="<%= person_path :id => person.id %>"><%= person.name %></a> (1)
     </h4>
-
-    <p><em>Voturi: 1</em></p>
+    <% if links %>
     <div class="social">
       <ul class="unstyled">
         <li><a class="facebook" href=""><i class="icon-facebook-sign"></i></a></li>
-        <!--<li><a class="twitter" href=""><i class="icon-twitter-sign"></i></a></li>-->
       </ul>
     </div>
+    <% end %>
   </div>
 </div>
