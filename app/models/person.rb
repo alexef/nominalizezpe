@@ -1,9 +1,9 @@
 class Person < ActiveRecord::Base
+  before_create :initialize_inferred_fields
+
   has_and_belongs_to_many :openings
   belongs_to :user
   has_many :votes
-
-  before_create :initialize_inferred_fields
 
   def name
     first_name + ' ' + last_name
