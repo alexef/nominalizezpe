@@ -20,10 +20,10 @@
         <td><%= person.status %></td>
         <td>
           <a href="<%= person_path :id => person.id %>">view</a>
+          <a href="<%= edit_person_path :id => person.id %>">edit</a>
           <a href="<%= make_ok_path :id => person.id %>">ok</a>
           <a href="<%= make_reject_path :id => person.id %>">rej</a>
           <a href="<%= make_new_path :id => person.id %>">new</a>
-
         </td>
       </tr>
   <% end %>

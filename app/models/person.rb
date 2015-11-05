@@ -6,6 +6,13 @@ class Person < ActiveRecord::Base
     first_name + ' ' + last_name
   end
 
+  def safe_picture_url
+    if picture_url?
+      return picture_url
+    else
+      return "http://quickimage.it/300x300"
+    end
+  end
 
   protected
   def initialize_inferred_fields
