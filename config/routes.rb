@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   resources :people
+
   get 'welcome/index'
+  # get 'welcome/terms'
+  # get 'welcome/about'
 
   root 'welcome#index'
+  match '/terms' => 'welcome#terms', via: [:get]
+  match '/about' => 'welcome#about', via: [:get]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
