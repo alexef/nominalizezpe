@@ -11,14 +11,15 @@
 
           <p><%= @person.description %></p>
         </div>
-        <div class="social" style="font-size: 24px">
-          <ul class="unstyled">
-            <% if @person.fb_url? %>
-                <li>
-                  <a class="facebook" href="<%= @person.fb_url %>"><i class="icon-facebook-sign"></i></a>
-                </li>
-            <% end %>
-          </ul>
+        <div class="social">
+          <p>Pagini:
+          <% if @person.fb_url? %>
+              <a href="<%= @person.fb_url %>">facebook</a>
+          <% end %>
+          <% if @person.linkedin_url? %>
+                <a href="<%= @person.linkedin_url %>">linkedin</a>
+          <% end %>
+          </p>
         </div>
         <div>
           <h4>Propus pentru:</h4>
