@@ -20,6 +20,6 @@ class Person < ActiveRecord::Base
   protected
   def initialize_inferred_fields
     self.encoded_name = name.downcase.strip.gsub(' ','-').gsub(/[^\w-]/, '')
-    self.status = 'new'
+    self.status = 'ok'
   end
 end
