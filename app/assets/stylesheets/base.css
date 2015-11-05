@@ -427,8 +427,20 @@ ul.plans {
 }
 
 .padding-top {
-    padding-top: 50px;
+    padding-top: 30px;
 }
 .bold {
     font-weight: bold;
+}
+
+.inline {
+    display: inline;
+}
+
+#new_person {
+    width: 50%;
+}
+
+#new_person textarea {
+    width: 100%;
 }

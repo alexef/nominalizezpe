@@ -11,19 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.collection_select :opening_ids, Opening.all, :id, :name, { :prompt => 'Alege pozitie'}, {:multiple => true} %>
+ <div class="inline" style="float:right">
+  <div>
+      <%= image_tag 'default-user-image.png', :style => 'width: 200px; height: 200px' %>
   </div>
   <div class="field">
+      <%= f.text_field :picture_url, :placeholder => 'URL catre poza', :style => 'width: 187px' %>
+  </div>
+ </div>
+ <br/>
+  <div class="field inline">
     <%= f.text_field :first_name, :placeholder => 'Prenume' %>
   </div>
-  <div class="field">
+  <div class="field inline">
     <%= f.text_field :last_name, :placeholder => 'Nume' %>
   </div>
-  <div class="field">
-    <%= f.text_field :picture_url, :placeholder => 'URL catre poza' %>
+  <div class="field padding-top">
+    <%= f.text_field :fb_url, :placeholder => 'Pagina Facebook' %>
   </div>
-  <div class="actions">
-    <%= f.submit :class => 'btn btn-primary' %>
+  <div class="field">
+    <%= f.text_field :linkedin_url, :placeholder => 'Pagina LinkedIn' %>
+  </div>
+
+ <div class="field padding-top">
+     <%= f.text_area :description, :placeholder => 'Scurta descriere' %>
+ </div>
+
+ <div class="field padding-top inline">
+     <%= f.label :opening_ids, "Pozitii pentru care persoana este propusa: " %>
+     <%= f.collection_select :opening_ids, Opening.all, :id, :name, {}, {:multiple => true, :style=>'width: 50%'} %>
+ </div>
+  <div class="actions inline" style="padding-top: 20px; float: right">
+    <%= f.submit 'Propune', :class => 'btn btn-primary' %>
   </div>
 <% end %>
