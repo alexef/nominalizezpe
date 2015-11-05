@@ -58,6 +58,9 @@
   <div class="row  navbar navbar-collapse">
     <div class="span12">
       <ul class="nav pull-right">
+        <% if user_signed_in? and current_user.moderator? %>
+        <li><a href="<%= moderator_index_path %>">moderator</a> </li>
+        <% end %>
         <li><a href="<%= new_person_path %>">PROPUNE</a></li>
         <li><a href="<%= people_path %>">CANDIDATI</a></li>
         <li><a href="<%= terms_path %>">CONDITII</a></li>

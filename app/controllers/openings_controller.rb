@@ -1,4 +1,4 @@
-class OpeningsController < ApplicationController
+class OpeningsController < ModeratorController
   before_action :set_opening, only: [:show, :edit, :update, :destroy]
   before_action :check_moderator!
 
