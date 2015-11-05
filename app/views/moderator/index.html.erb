@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @people.each do |person| %>
+      <tr>
+        <td>todo</td>
+        <td><%= person.name %></td>
+        <td><%= person.created_at %></td>
+        <td><%= person.status %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

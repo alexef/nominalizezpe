@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @people = Person.all
+    @people = Person.where(status: "ok").take(10)
   end
 
   def terms
@@ -12,6 +12,6 @@ class WelcomeController < ApplicationController
   def contact
   end
 
-  def message
+  def result
   end
 end

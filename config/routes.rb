@@ -2,16 +2,16 @@ Rails.application.routes.draw do
   resources :people
 
   get 'welcome/index'
-  # get 'welcome/terms'
-  # get 'welcome/about'
-  get 'welcome/message'
 
   root 'welcome#index'
   match '/terms' => 'welcome#terms', via: [:get]
   match '/about' => 'welcome#about', via: [:get]
+  match '/result' => 'welcome#result', via: [:get]
   match '/contact' => 'welcome#contact', via: [:get]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  get 'moderator/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
