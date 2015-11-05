@@ -13,7 +13,7 @@ class Person < ActiveRecord::Base
     if picture_url?
       return picture_url
     else
-      return "http://quickimage.it/300x300"
+      return 'http://www.datastax.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
     end
   end
 

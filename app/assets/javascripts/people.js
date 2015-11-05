@@ -1,5 +1,6 @@
 var defaultImage;
 $(document).ready(function() {
+    changeImageInput();
     $("#person_picture_url").change(changeImageInput);
     defaultImage = $("#person_image");
 });

@@ -34,7 +34,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if current_user.people.count < 5 && @person.save
-        format.html { redirect_to result_path, notice: 'Iti multumim pentru propunere. Aceasta va aparea public imediat ce va fi moderata!' }
+        format.html { redirect_to @person, notice: 'Iti multumim pentru propunere!' }
         format.json { render :show, status: :created, location: @person }
       else
         format.html { redirect_to result_path, notice: 'Poti propune doar 5 persoane! Daca nu ai depasit aceasta limita te rugam sa ne contactezi!' }

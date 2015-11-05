@@ -1,10 +1,9 @@
 <div id="team" class="thumbnail">
-  <img alt="" src="<%= person.safe_picture_url %>" />
+  <img alt="" src="<%= person.safe_picture_url %>" style="height: 160px" />
   <div class="caption">
     <h5>
-      <a href="<%= person_path :id => person.id %>"><%= person.name %></a>
+      <a href="<%= person_path :id => person.id %>"><%= person.name %> <small>(<%= person.votes.count %>)</small></a>
     </h5>
-    <span class="">(1)</span>
 
     <% if links %>
     <div class="social">
