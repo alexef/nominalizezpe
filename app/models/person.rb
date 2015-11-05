@@ -3,13 +3,14 @@ class Person < ActiveRecord::Base
   before_create :initialize_inferred_fields
 
   def name
-    self.first_name + ' ' + self.last_name
+    first_name + ' ' + last_name
   end
 
 
   protected
   def initialize_inferred_fields
-    self.encoded_name = self.name.gsub ' ' '-'
+    self.encoded_name = name.downcase.strip.gsub(' ','-').gsub(/[^\w-]/, '')
+    puts encoded_name
     self.status = 'new'
   end
 end
