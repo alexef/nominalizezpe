@@ -6,28 +6,27 @@
           <small><%= @person.votes.count %> voturi</small>
         </h1>
 
-        <div class="caption">
+        <div>
           <h4>Despre</h4>
 
           <p><%= @person.description %></p>
-
-          <div class="social">
-            <ul class="unstyled">
-              <% if @person.fb_url? %>
-                  <li>
-                    <a class="facebook" href="<%= @person.fb_url %>"><i class="icon-facebook-sign"></i></a>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
+        </div>
+        <div class="social" style="font-size: 24px">
+          <ul class="unstyled">
+            <% if @person.fb_url? %>
+                <li>
+                  <a class="facebook" href="<%= @person.fb_url %>"><i class="icon-facebook-sign"></i></a>
+                </li>
+            <% end %>
+          </ul>
         </div>
         <div>
           <h4>Propus pentru:</h4>
 
           <ul>
-              <% @person.openings.each do |op| %>
-               <li><%= op.name %> - <%= Vote.where(:person => @person, :opening => op).count %> voturi</li>
-              <% end %>
+            <% @person.openings.each do |op| %>
+                <li><%= op.name %> - <%= Vote.where(:person => @person, :opening => op).count %> voturi</li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -45,31 +44,32 @@
   <div class="container">
     <div class="row">
       <div class="span12">
-          <% if user_signed_in? %>
-           <%= form_for Vote.new do |f| %>
-            <%= f.hidden_field :person_id, :value => @person.id %>
-             <div class="inline">
-                 <h5>Votează</h5>
-             </div>
-             <div class="field padding-top inline">
-                 <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
-             </div>
-             <div class="field padding-top">
-                 <%= f.text_area :comment, :placeholder => 'Motivatie' %>
-             </div>
-             <div class="actions inline" style="padding-top: 20px; float: right">
-                 <%= f.submit 'Votează', :class => 'btn btn-primary' %>
-             </div>
+        <% if user_signed_in? %>
+            <%= form_for Vote.new do |f| %>
+                <%= f.hidden_field :person_id, :value => @person.id %>
+                <div class="inline">
+                  <h5>Votează</h5>
+                </div>
+                <div class="field padding-top inline">
+                  <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
+                </div>
+                <div class="field padding-top">
+                  <%= f.text_area :comment, :placeholder => 'Motivatie' %>
+                </div>
+                <div class="actions inline" style="padding-top: 20px; float: right">
+                  <%= f.submit 'Votează', :class => 'btn btn-primary' %>
+                </div>
             <% end %>
-           <% else %>
-           <div class="txt-middle">
-             <p>Te rugam sa te loghezi cu contul de Facebook pentru a vota!</p>
-             <br/>
-             <p>O data logat vei avea dreptul la maxim 5 voturi.</p>
-             <br/>
-           </div>
-           <%= link_to '', user_omniauth_authorize_path(:facebook), :class => 'fb-login-button' %>
-           <% end %>
+        <% else %>
+            <div class="txt-middle">
+              <p>Te rugam sa te loghezi cu contul de Facebook pentru a vota!</p>
+              <br/>
+
+              <p>O data logat vei avea dreptul la maxim 5 voturi.</p>
+              <br/>
+            </div>
+            <%= link_to '', user_omniauth_authorize_path(:facebook), :class => 'fb-login-button' %>
+        <% end %>
       </div>
     </div>
   </div>
