@@ -11,4 +11,7 @@ class WelcomeController < ApplicationController
 
   def contact
   end
+
+  def message
+  end
 end

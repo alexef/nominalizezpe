@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
+        format.html { redirect_to welcome_message_path, notice: 'Iti multumim pentru propunere. Aceasta va aparea public imediat ce va fi moderata!' }
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new }

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   # get 'welcome/terms'
   # get 'welcome/about'
+  get 'welcome/message'
 
   root 'welcome#index'
   match '/terms' => 'welcome#terms', via: [:get]
