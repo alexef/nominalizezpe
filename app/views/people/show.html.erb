@@ -1,8 +1,38 @@
 <div id="header">
   <div class="container">
     <div class="row">
-      <div class="span12">
-        <h1><%= @person.name %></h1>
+      <div class="span9">
+        <h1><%= @person.name %>
+          <small>(2 voturi)</small>
+        </h1>
+
+        <div class="caption">
+          <h4>Despre</h4>
+
+          <p><%= @person.description %></p>
+
+          <div class="social">
+            <ul class="unstyled">
+              <% if @person.fb_url? %>
+                  <li>
+                    <a class="facebook" href="<%= @person.fb_url %>"><i class="icon-facebook-sign"></i></a>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <h4>Propus pentru:</h4>
+
+          <ul>
+            <li>Opening - 5 voturi</li>
+            <li>Opening - 5 voturi</li>
+            <li>Opening - 5 voturi</li>
+          </ul>
+        </div>
+      </div>
+      <div class="span3">
+        <img src="<%= @person.safe_picture_url %>"/>
       </div>
     </div>
   </div>
@@ -15,23 +45,12 @@
 
         <p id="notice"><%= notice %></p>
 
-        <p>
-          <strong>Status:</strong>
-          <%= @person.status %>
-        </p>
+        <h5>Votează</h5>
 
-        <p>
-          <strong>Name:</strong>
-          <%= @person.name %>
-        </p>
-
-        <p>
-          <strong>Picture url:</strong>
-          <%= @person.picture_url %>
-        </p>
-
-        <%= link_to 'Edit', edit_person_path(@person) %> |
-        <%= link_to 'Back', people_path %>
+        <form action="" method="">
+          <textarea></textarea>
+          <button type="submit" class="btn btn-primary">Votează</button>
+        </form>
       </div>
     </div>
   </div>
