@@ -12,18 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
+    <%= f.label :name, 'Pozitie' %><br>
+    <%= collection_select 'people', :opening_id, Opening.all, :id, :name, :prompt => 'Select' %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :first_name, 'Prenume' %><br>
+    <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :picture_url %><br>
+    <%= f.label :last_name, 'Nume' %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_url, 'Link poza' %><br>
     <%= f.text_field :picture_url %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn' %>
   </div>
 <% end %>

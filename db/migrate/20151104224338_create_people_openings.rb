@@ -1,8 +1,8 @@
 class CreatePeopleOpenings < ActiveRecord::Migration
   def change
     create_table :people_openings, :id => false do |t|
-      t.references :person
-      t.references :opening
+      t.belongs_to :person
+      t.belongs_to :opening
     end
   end
 end

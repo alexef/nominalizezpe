@@ -25,9 +25,11 @@
 
              <div class="nav-collapse collapse">
                  <ul class="nav pull-right">
-                     <li class="active"><a href="#">Propune</a></li>
-                     <li><a href="#">Candidați</a></li>
-                     <li><a href="#">Condiții</a></li>
+                     <% if user_signed_in? %>
+                      <li class="active"><a href="/people/new">Propune</a></li>
+                     <% end %>
+                     <li><a href="#">Candidati</a></li>
+                     <li><a href="#">Conditii</a></li>
                      <li><a href="#">Despre</a></li>
                  </ul>
              </div>

@@ -1,17 +1,23 @@
-<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-
 <div id="landing">
     <div class="container">
         <div class="row">
             <div class="span12">
-                <h1>Take your product to new heights.</h1>
+                <h1>Mesaj titlu</h1>
 
-                <p>Bounce is a modern and minimalistic template perfect for showing off your latest product or service
-                    and its features. Bounce comes with many pages and features that make it a wonderful starting point
-                    to create something even more unique.</p>
+                <p>Lorem ipsum dolor sit amet elementum. Non parturient felis. Vel lectus et in suspendisse tellus elit ligula fermentum enim quam pretium. Non nunc a. Sit ipsum cras. Tortor lectus eget dictum ut tortor consequat sapien vitae. Parturient morbi neque. Sed vivamus eget. Elit ut nulla vulputate penatibus nisl. Metus facilisis amet. Suscipit torquent nulla. Nec odio con quisque pellentesque sit dis suspendisse vestibulum a ornare praesent ullamcorper dictumst nec massa dolor lorem non sodales vehicula aliquam in eu ante facilisis bibendum dolor aut faucibus harum neque nisl. Leo maecenas sed gravida ut integer. Non ad morbi. Ut habitasse eget ultrices lacus magnis ultrices lacus ultrices. Non nec sed. Sed eu id. Erat vitae maecenas. Quam tristique neque. Porro vel ante.</p>
+                <p>Aliquet amet vulputate fames aliquam pellentesque libero tempor diam bibendum eu tincidunt massa tempus vestibulum nibh nullam neque. Nulla lorem magna malesuada viverra consectetuer magna dapibus quisque. At sapien posuere. Ac id rutrum. Leo feugiat vitae. Parturient magni quis. Nec ipsum interdum eu velit phasellus elit platea ullamcorper mauris ut sed et fringilla vitae interdum nibh nisl neque ridiculus nesciunt. Libero cursus eu. Lorem magna volutpat phasellus sodales mattis. Quisque cras arcu. Eget risus scelerisque sollicitudin fames faucibus. Vehicula elit phasellus. Tempus erat at. Nibh id et. Quis cras nibh.</p>
 
-                <p><a href="#" class="btn btn-primary btn-action">Get Started Now</a></p>
+                <p>Ut hac sed donec bibendum lacus possimus feugiat etiam. Metus sit et mi pellentesque condimentum ut arcu tortor gravida optio eu. Mi aliquam nibh eu in massa pharetra at erat. Porta sociis ridiculus enim ut enim. Nulla mauris vel. Dictum amet ullamcorper leo pretium non. Hendrerit lorem pede ut malesuada senectus. Arcu purus nonummy. Ultricies in integer. Ut maecenas sint. Sed ut accumsan. Elit neque lacinia vivamus placerat eu eros non suscipit rutrum nec enim commodo neque mauris. Ante aenean sit luctus aliquam accumsan. Vel tincidunt ullamcorper. Lacus vel quam.</p>
+
+
+                <% unless user_signed_in? %>
+                 <%= link_to "Logheaza-te cu Facebook pentru a vota sau propune", user_omniauth_authorize_path(:facebook), :class => "btn btn-primary btn-action" %>
+                <% end %>
             </div>
         </div>
     </div>
+</div>
+
+<div id="content" class="txt-middle">
+    Top 10
 </div>
