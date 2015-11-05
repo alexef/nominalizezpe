@@ -12,10 +12,10 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if vote_valid && @vote.save
-        format.html { redirect_to @vote.person, notice: 'Iti multumim pentru vot!' }
+        format.html { redirect_to :back, notice: 'Iti multumim pentru vot!' }
         format.json { render :show, status: :created, location: @vote }
       else
-        format.html { redirect_to @vote.person, notice: 'Ne pare rau, dar votul este invalid sau ai depasit numarul de 5 voturi.' }
+        format.html { redirect_to :back, notice: 'Ne pare rau, dar votul este invalid sau ai depasit numarul de 5 voturi.' }
       end
     end
   end
@@ -38,6 +38,6 @@ class VotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vote_params
-      params.require(:vote).permit(:comment)
+      params.require(:vote).permit(:comment, :person_id, :opening_id)
     end
 end

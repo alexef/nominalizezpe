@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :votes
   resources :people
+  resources :openings
 
   get 'welcome/index'
 

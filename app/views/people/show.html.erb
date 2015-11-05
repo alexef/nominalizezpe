@@ -25,9 +25,9 @@
           <h4>Propus pentru:</h4>
 
           <ul>
-            <li>Opening - 5 voturi</li>
-            <li>Opening - 5 voturi</li>
-            <li>Opening - 5 voturi</li>
+              <% @person.openings.each do |op| %>
+               <li><%= op.name %> - <%= Vote.where(:person => @person, :opening => op).count %> voturi</li>
+              <% end %>
           </ul>
         </div>
       </div>
@@ -38,18 +38,21 @@
   </div>
 </div>
 
+<p id="notice" class="txt-middle"> notice </p>
 <div id="content">
   <div class="container">
     <div class="row">
       <div class="span12">
-          <h5>Votează</h5>
           <%= form_for Vote.new do |f| %>
            <%= f.hidden_field :person_id, :value => @person.id %>
-           <div class="field padding-top">
-               <%= f.text_area :comment, :placeholder => 'Motivatie' %>
+           <div class="inline">
+               <h5>Votează</h5>
+           </div>
+           <div class="field padding-top inline">
+               <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
            </div>
            <div class="field padding-top">
-               <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
+               <%= f.text_area :comment, :placeholder => 'Motivatie' %>
            </div>
            <div class="actions inline" style="padding-top: 20px; float: right">
                <%= f.submit 'Votează', :class => 'btn btn-primary' %>
