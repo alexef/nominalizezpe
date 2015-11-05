@@ -236,8 +236,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, '978176485558121', 'cec769d433c50e4602af959e177c3595',
-      :scope => 'email,user_friends'
+  API_KEYS = YAML::load_file("#{Rails.root}/config/omniauth.yml")[Rails.env]
+  config.omniauth :facebook , API_KEYS['facebook']['api_key'], API_KEYS['facebook']['api_secret'],
+                  :scope => 'email,user_friends'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
