@@ -1,19 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h1><%= @person.name %></h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @person.status %>
-</p>
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
 
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Picture url:</strong>
-  <%= @person.picture_url %>
-</p>
+        <p>
+          <strong>Status:</strong>
+          <%= @person.status %>
+        </p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+        <p>
+          <strong>Name:</strong>
+          <%= @person.name %>
+        </p>
+
+        <p>
+          <strong>Picture url:</strong>
+          <%= @person.picture_url %>
+        </p>
+
+        <%= link_to 'Edit', edit_person_path(@person) %> |
+        <%= link_to 'Back', people_path %>
+      </div>
+    </div>
+  </div>
+</div>
