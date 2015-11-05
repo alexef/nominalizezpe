@@ -5,28 +5,38 @@
         <h1>MANIFEST</h1>
 
         <p>“Nu avem lideri.” Asta e zidul de care s-a lovit orice initiativa pana acum.</p>
+
         <p>Pe de alta parte:</p>
+
         <p>“E super tare judecatorul ala, ala ar fi un ministru bun al justitiei.”</p>
+
         <p>“E tare directorul ala de spital, ar fi minunat ca ministru al sanatatii.”</p>
+
         <p>Aa… auzi o idee: haideti sa gasim lideri? Ce ziceti ce solutia asta nebuneasca?</p>
+
         <p>Mai concret, avem nevoie de o lista de lideri, pe specializari: justitie, sanatate, turism etc.</p>
+
         <p>Daca nu vrei sa le zici lideri, zi-le reprezentanti ai societatii civile, zi-le elite.</p>
+
         <p>Acesti lideri vor fi trimisi de noi, strada, sa asiste reconstructia guvernului.</p>
+
         <p>Sa se consulte cu prededintele de acum. Si primul-ministru, oricine va fi el. Si minsitrii de acum.</p>
+
         <p>Vehiculul dintre societate si guvernanti.</p>
-        <br />
+        <br/>
+
         <p>Semnat, niste oameni. <a href="<%= about_path %>">NOI</a>.</p>
 
       </div>
       <div class="span6">
         <ul class="thumbnails">
-          <li class="span2">
-            <% @people.each do |person| %>
+          <% @people.each do |person| %>
+              <li class="span2">
 
                 <%= render "people/card", :person => person, :links => false %>
 
-            <% end %>
-          </li>
+              </li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -34,10 +44,10 @@
 </div>
 
 <!--<div class="container">-->
-  <!--<div class="row">-->
-    <!--<div class="span12">-->
-      <!--<h2 class="txt-middle">Top 10</h2>-->
-      <!--<hr class="dashed">-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="row">-->
+<!--<div class="row">-->
+<!--<div class="span12">-->
+<!--<h2 class="txt-middle">Top 10</h2>-->
+<!--<hr class="dashed">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->

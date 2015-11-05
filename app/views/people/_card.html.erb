@@ -1,9 +1,11 @@
 <div id="team" class="thumbnail">
-  <img alt="" src="http://quickimage.it/300x300">
+  <img alt="" src="<%= person.safe_picture_url %>" />
   <div class="caption">
-    <h4>
-      <a href="<%= person_path :id => person.id %>"><%= person.name %></a> (1)
-    </h4>
+    <h5>
+      <a href="<%= person_path :id => person.id %>"><%= person.name %></a>
+    </h5>
+    <span class="">(1)</span>
+
     <% if links %>
     <div class="social">
       <ul class="unstyled">
