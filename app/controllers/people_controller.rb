@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :create, :destroy, :update]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people

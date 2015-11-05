@@ -1,21 +1,31 @@
-<div id="header">
-  <div class="container">
-    <div class="row">
-      <div class="span12">
-        <h1>Propune un candidat</h1>
-      </div>
-    </div>
-  </div>
-</div>
+<% if user_signed_in? %>
+ <div id="header">
+   <div class="container">
+     <div class="row">
+       <div class="span12">
+         <h1>Propune un candidat</h1>
+       </div>
+     </div>
+   </div>
+ </div>
 
-<div id="content">
-  <div class="container">
-    <div class="row">
-      <div class="span12">
+ <div id="content">
+   <div class="container">
+     <div class="row">
+       <div class="span12">
 
-        <%= render 'form' %>
+         <%= render 'form' %>
 
-      </div>
-    </div>
-  </div>
-</div>
+       </div>
+     </div>
+   </div>
+ </div>
+<% else %>
+     <div class="container txt-middle padding-top bold">
+         <p>Te rugam sa te loghezi cu contul de Facebook pentru a propune!</p>
+         <br/>
+         <p>O data logat vei avea dreptul la maxim 5 propuneri, care vor fi moderate inainte de a fi publicate.</p>
+         <br/>
+        <%= link_to '', user_omniauth_authorize_path(:facebook), :class => 'fb-login-button' %>
+     </div>
+<% end %>

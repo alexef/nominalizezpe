@@ -25,9 +25,7 @@
 
              <div class="nav-collapse collapse">
                  <ul class="nav pull-right">
-                     <% if user_signed_in? %>
-                      <li class="active"><a href="/people/new">Propune</a></li>
-                     <% end %>
+                     <li class="active"><a href="<%= new_person_path %>">Propune</a></li>
                      <li><a href="/people">Candidati</a></li>
                      <li><a href="/terms">Conditii</a></li>
                      <li><a href="/about">Despre</a></li>

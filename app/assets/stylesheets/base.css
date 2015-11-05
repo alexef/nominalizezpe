@@ -417,3 +417,17 @@ ul.plans {
 .notice {
     display: none;
 }
+
+.fb-login-button {
+    background-image: url("fb_login.png");
+    width: 300px;
+    height: 46px;
+    display: block;
+}
+
+.padding-top {
+    padding-top: 50px;
+}
+.bold {
+    font-weight: bold;
+}
