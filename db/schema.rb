@@ -18,20 +18,21 @@ ActiveRecord::Schema.define(version: 20151105072227) do
 
   create_table "openings", force: :cascade do |t|
     t.string   "name"
-    t.string   "encoded_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
     t.string   "status"
-    t.string   "encoded_name"
     t.string   "picture_url"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "opening_id"
     t.string   "first_name"
     t.string   "last_name"
   end
+
+  add_index "people", ["opening_id"], name: "index_people_on_opening_id", using: :btree
 
   create_table "people_openings", id: false, force: :cascade do |t|
     t.integer "person_id"
@@ -66,4 +67,5 @@ ActiveRecord::Schema.define(version: 20151105072227) do
   add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "people", "openings"
 end
