@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'scaffold/opening'
-
   resources :people
 
   get 'welcome/index'
