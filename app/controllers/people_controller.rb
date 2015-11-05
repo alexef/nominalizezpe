@@ -6,7 +6,8 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.where(status: "ok").joins(:votes).group("people.id").order("count(*) desc")
+    @people = Person.where(status: "ok")
+    @people.sort_by { |p| p.votes.count}
   end
 
   # GET /people/1
