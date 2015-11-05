@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :create, :destroy, :update]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :check_moderator!, only: [:edit, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -11,6 +12,9 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    if @person.status != 'ok'
+      check_moderator!
+    end
   end
 
   # GET /people/new

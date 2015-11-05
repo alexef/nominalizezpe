@@ -1,6 +1,6 @@
-class ModeratorController < ActionController::Base
+class ModeratorController < ApplicationController
   before_action :set_person, only: [:make_ok, :make_reject, :make_new]
-  protect_from_forgery with: :exception
+  before_action :check_moderator!
 
   def index
     @people = Person.all.order(created_at: :desc)

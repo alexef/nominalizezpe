@@ -1,5 +1,6 @@
 class OpeningsController < ApplicationController
   before_action :set_opening, only: [:show, :edit, :update, :destroy]
+  before_action :check_moderator!
 
   # GET /openings
   # GET /openings.json
