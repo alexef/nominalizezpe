@@ -1,6 +1,6 @@
-function ready() {
+function ready_moderator() {
     $('.moderator_datatable').DataTable();
 }
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).ready(ready_moderator);
+$(document).on('page:load', ready_moderator);

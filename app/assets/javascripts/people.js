@@ -1,9 +1,9 @@
 var defaultImage;
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).ready(readyPeople);
+$(document).on('page:load', readyPeople);
 
-function ready() {
+function readyPeople() {
     changeImageInput();
     $("#person_picture_url").change(changeImageInput);
     defaultImage = $("#person_image");
