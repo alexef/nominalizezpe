@@ -12,6 +12,14 @@ class Person < ActiveRecord::Base
     first_name + ' ' + last_name
   end
 
+  def pozitive_votes
+    votes.where(:pozitive => true)
+  end
+
+  def negative_votes
+    votes.where(:pozitive => false)
+  end
+
   def safe_picture_url
     if picture_url?
       return picture_url

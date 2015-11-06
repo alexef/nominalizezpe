@@ -2,11 +2,11 @@
   <img alt="" src="<%= person.safe_picture_url %>" style="height: 160px" />
   <div class="caption">
     <h5>
-      <a href="<%= person_path :id => person.id %>"><%= person.name %>&nbsp<small>(<%= person.votes.count %>)</small></a>
+      <a href="<%= person_path :id => person.id %>"><%= person.name %>&nbsp</a>
     </h5>
 
     <% if links %>
-    <div class="social">
+    <div class="social" style="display:inline">
       <ul class="unstyled">
         <% if person.fb_url? %>
             <li><a class="facebook" href="<%= person.fb_url %>"><i class="icon-facebook-sign"></i></a></li>
@@ -14,5 +14,16 @@
       </ul>
     </div>
     <% end %>
+
+      <div style="display: inline;float: right">
+          <div class="pozitive vote">
+              <span class="icon"></span>
+              <span><%=person.pozitive_votes.count %></span>
+          </div>
+          <div class="negative vote">
+              <span class="icon"></span>
+              <%=person.negative_votes.count %>
+          </div>
+      </div>
   </div>
 </div>

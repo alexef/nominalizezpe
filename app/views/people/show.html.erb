@@ -3,7 +3,14 @@
     <div class="row">
       <div class="span9">
         <h1><%= @person.name %>
-          <small><%= @person.votes.count %> voturi</small>
+            <div class="pozitive vote">
+                <span class="icon"></span>
+                <small><%=@person.pozitive_votes.count %></small>
+            </div>
+            <div class="negative vote">
+                <span class="icon"></span>
+                <small><%=@person.negative_votes.count %></small>
+            </div>
         </h1>
 
         <div>
@@ -47,18 +54,21 @@
       <div class="span12">
           <% if user_signed_in? %>
            <% if current_user.votes.exists?(:person => @person) %>
-              <%= link_to 'Renunta la vot', current_user.votes.find_by(:person => @person), :method => :delete, data: { confirm: 'Are you sure?', :remote => true }, :class => 'btn btn-danger', :remote => true %>
+              <%= link_to 'Renunta la vot', current_user.votes.find_by(:person => @person), :method => :delete, data: { confirm: 'Are you sure?'}, :class => 'btn btn-danger'%>
             <% else %>
               <%= form_for Vote.new do |f| %>
                <%= f.hidden_field :person_id, :value => @person.id %>
                 <div class="field padding-top inline" style="display: none">
                     <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
                 </div>
-                <div class="field padding-top inline">
-                    <%= f.text_area :comment, :placeholder => 'Motivatie' %>
+                <div class="field padding-top" style="width: 100%">
+                    <%= f.text_area :comment, :placeholder => 'Motivatie', :style=> 'width:100%' %>
+                </div>
+                <div class="actions inline" style="padding-top: 20px; float: left">
+                    <%= f.submit 'De acord', :class => 'btn btn-primary' %>
                 </div>
                 <div class="actions inline" style="padding-top: 20px; float: right">
-                    <%= f.submit 'Votează', :class => 'btn btn-primary' %>
+                    <%= f.submit 'Nu sunt de acord', :class => 'btn btn-primary' %>
                 </div>
                 <% end %>
             <% end %>

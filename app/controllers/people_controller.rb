@@ -7,7 +7,7 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     @people = Person.where(status: "ok")
-    @people.sort_by { |p| p.votes.count}
+    @people.sort_by { |p| p.pozitive_votes.count}
   end
 
   # GET /people/1

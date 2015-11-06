@@ -8,6 +8,8 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
     @vote.user = current_user
 
+    @vote.pozitive = params[:commit] == 'De acord'
+
     vote_valid = current_user.votes.count < 5 && !current_user.votes.exists?(:person => @vote.person)
 
     respond_to do |format|
@@ -25,7 +27,7 @@ class VotesController < ApplicationController
   def destroy
     @vote.destroy
     respond_to do |format|
-      format.html { redirect_to votes_url, notice: 'Votul a fost anulat!' }
+      format.html { redirect_to :back, notice: 'Votul a fost anulat!' }
       format.json { head :no_content }
     end
   end

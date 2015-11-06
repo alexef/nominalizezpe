@@ -457,3 +457,43 @@ ul.plans {
     background-color: ghostwhite !important;
     border: 1px solid #BABABA !important;
 }
+
+.vote {
+    display: inline;
+}
+
+.pozitive.vote {
+    color: green;
+}
+
+.negative.vote {
+    color: red;
+}
+
+.vote .icon {
+    background-size: 30px 15px;
+    background-image: url('thumbs.png');
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.pozitive.vote .icon {
+    background-position-y: 4px;
+}
+
+.negative.vote .icon {
+    background-position-x: -15px;
+}
+
+.pozitive.vote small {
+    color: green;
+}
+
+.negative.vote small {
+    color: #d10000;
+}
+
+.negative.vote {
+    color: red;
+}

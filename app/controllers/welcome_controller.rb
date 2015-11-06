@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @people = Person.where(status: "ok")
-    @people.sort_by { |p| p.votes.count}
+    @people.sort_by { |p| p.pozitive_votes.count}
     @people = @people.slice(0, 10)
   end
 
