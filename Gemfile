@@ -47,6 +47,7 @@ gem 'puma'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal', branch: 'bootstrap2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

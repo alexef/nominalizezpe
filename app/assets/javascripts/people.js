@@ -23,3 +23,9 @@ function changeImageInput() {
             }
         });
 }
+
+dataConfirmModal.setDefaults({
+    title: 'Esti sigur?',
+    commit: 'Sunt sigur',
+    cancel: 'M-am razgandit'
+});
