@@ -17,21 +17,18 @@
           acestea.
         </p>
 
-        <p><a href="http://propun.pe">propun.pe</a> 
-            e centralizatorul oficial al opiniilor noastre din mediul online, dar și a ultimelor întâmplări din Piață.
+        <p><a href="http://propun.pe">propun.pe</a> e centralizatorul oficial al opiniilor noastre din mediul online, dar și a ultimelor întâmplări din Piață.
         </p>
 
       </div>
     </div>
-    <div class="row">
+    <div class="row padding-top">
 
       <div class="span12">
         <ul class="thumbnails">
           <% @people.each do |person| %>
               <li class="span2">
-
                 <%= render "people/card", :person => person, :links => false %>
-
               </li>
           <% end %>
         </ul>
