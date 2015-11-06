@@ -22,15 +22,19 @@ class Person < ActiveRecord::Base
 
   def safe_picture_url
     if picture_url?
-      return picture_url
+      picture_url
     else
-      return 'http://www.datastax.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+      'http://www.datastax.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
     end
   end
 
   protected
   def initialize_inferred_fields
     self.encoded_name = name.downcase.strip.gsub(' ','-').gsub(/[^\w-]/, '')
+    person_with_same_encoded_name = Person.find_by_encoded_name(encoded_name)
+    unless person_with_same_encoded_name.nil?
+      self.encoded_name += "-" + rand(100).to_s
+    end
     self.status = 'ok'
   end
 end
