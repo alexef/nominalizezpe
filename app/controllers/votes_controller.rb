@@ -10,7 +10,7 @@ class VotesController < ApplicationController
 
     @vote.pozitive = params[:commit] == 'De acord'
 
-    vote_valid = current_user.votes.count < 5 && !current_user.votes.exists?(:person => @vote.person)
+    vote_valid = !current_user.votes.exists?(:person => @vote.person)
 
     respond_to do |format|
       if vote_valid && @vote.save
