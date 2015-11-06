@@ -124,6 +124,8 @@ ul.plans {
 -------------------------------------------------- */
 #team.thumbnail {
     background: none repeat scroll 0 0 #FFFFFF;
+    height: 250px;
+    overflow: hidden;
 }
 
 /* Footer

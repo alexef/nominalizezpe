@@ -2,7 +2,7 @@
   <img alt="" src="<%= person.safe_picture_url %>" style="height: 160px" />
   <div class="caption">
     <h5>
-      <a href="<%= person_path :id => person.id %>"><%= person.name %> <small>(<%= person.votes.count %>)</small></a>
+      <a href="<%= person_path :id => person.id %>"><%= person.name %>&nbsp<small>(<%= person.votes.count %>)</small></a>
     </h5>
 
     <% if links %>
