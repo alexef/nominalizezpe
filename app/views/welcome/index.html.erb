@@ -1,11 +1,11 @@
 <div id="landing">
   <div class="container">
     <div class="row">
-      <div class="span6">
+      <div class="span12">
         <h1>MANIFEST</h1>
 
         <p>
-          “O.K., i-am dat jos p-astia, acum pe cine punem in loc?”
+          “O.K., i-am dat jos p-astia, acum pe cine punem in loc?
         </p>
 
         <p><a href="http://propun.pe">propun.pe</a> 
@@ -27,18 +27,21 @@
           E doar o chestiune de efort si rabdare sa ii gasim!
         </p>
       </div>
-      <div class="span6">
-        <ul class="thumbnails">
-          <% @people.each do |person| %>
-              <li class="span2">
-
-                <%= render "people/card", :person => person, :links => false %>
-
-              </li>
-          <% end %>
-        </ul>
-      </div>
     </div>
+      <div class="row">
+
+          <div class="span12">
+              <ul class="thumbnails">
+                  <% @people.each do |person| %>
+                   <li class="span2">
+
+                       <%= render "people/card", :person => person, :links => false %>
+
+                   </li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
   </div>
 </div>
 
