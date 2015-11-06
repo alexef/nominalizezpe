@@ -5,34 +5,38 @@
         <h1>MANIFEST</h1>
 
         <p>
-          “O.K., i-am dat jos p-astia, acum pe cine punem in loc?
-        </p>
-
-        <p><a href="http://propun.pe">propun.pe</a> 
-           este unealta care faciliteaza procesul de gasire a celor mai competenti oameni din Romania. E centralizatorul
-          opiniilor noastre, a celor care vrem ca lucrurile sa se schimbe in bine.
+          O discuție nu e de ajuns. E nevoie de cooperare pe termen lung între Președinte, Guvern și noi, cei care ne
+          dorim schimbarea.
         </p>
 
         <p>
-          Hai ca se poate! Stim cu totii ca acesti oameni capabili si de buna-credinta exista!<br/>
-          E doar o chestiune de efort si rabdare sa ii gasim!
+          Haide să alegem oamenii care ne vor reprezenta de acum înainte în Piață și apoi, abia apoi, în eventualele
+          discuții cu oficialii. Poate sunt dintre cei care au fost invitați la Cotroceni, poate sunt persoane care n-au
+          fost invitate, dar care credem că sunt potrivite să ne reprezinte. Hai să îi alegem pe cei care vor vorbi în
+          numele nostru de acum înainte. Schimbarea României nu e un sprint, e un maraton, cum bine spunea cineva zilele
+          acestea.
         </p>
+
+        <p><a href="http://propun.pe">propun.pe</a> 
+            e centralizatorul oficial al opiniilor noastre din mediul online, dar și a ultimelor întâmplări din Piață.
+        </p>
+
       </div>
     </div>
-      <div class="row">
+    <div class="row">
 
-          <div class="span12">
-              <ul class="thumbnails">
-                  <% @people.each do |person| %>
-                   <li class="span2">
+      <div class="span12">
+        <ul class="thumbnails">
+          <% @people.each do |person| %>
+              <li class="span2">
 
-                       <%= render "people/card", :person => person, :links => false %>
+                <%= render "people/card", :person => person, :links => false %>
 
-                   </li>
-                  <% end %>
-              </ul>
-          </div>
+              </li>
+          <% end %>
+        </ul>
       </div>
+    </div>
   </div>
 </div>
 
