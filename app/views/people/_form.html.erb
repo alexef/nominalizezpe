@@ -37,7 +37,7 @@
      <%= f.text_area :description, :placeholder => 'Scurta descriere' %>
  </div>
 
- <div class="field padding-top inline">
+ <div class="field padding-top inline" style="display: none">
      <%= f.label :opening_ids, "Pozitii pentru care persoana este propusa: " %>
      <%= f.collection_select :opening_ids, Opening.all, :id, :name, {}, {:multiple => true, :style=>'width: 100%'} %>
  </div>

@@ -21,7 +21,7 @@
           <% end %>
           </p>
         </div>
-        <div>
+        <div style="display:none">
           <h4>Pozitia</h4>
 
           <ul>
@@ -54,7 +54,7 @@
                 <div class="inline">
                     <h5>Votează</h5>
                 </div>
-                <div class="field padding-top inline">
+                <div class="field padding-top inline" style="display: none">
                     <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
                 </div>
                 <div class="field padding-top">
