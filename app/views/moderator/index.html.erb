@@ -25,7 +25,8 @@
           <a href="<%= edit_person_path :id => person.id %>">edit</a> |
           <a href="<%= make_ok_path :id => person.id %>">ok</a> |
           <a href="<%= make_reject_path :id => person.id %>">rej</a> |
-          <a href="<%= make_new_path :id => person.id %>">new</a>
+          <a href="<%= make_new_path :id => person.id %>">new</a> |
+          <%= link_to 'delete', person, method: :delete, data: {confirm: 'Esti sigur ca il stergi de tot? Nu vrei doar sa ii dai reject?'}  %>
         </td>
       </tr>
   <% end %>
