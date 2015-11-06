@@ -13,6 +13,11 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    redirect_to person_by_name_path(@person.encoded_name)
+  end
+
+  def show_by_name
+    @person = Person.find_by_encoded_name!(params[:encoded_name])
     if @person.status != 'ok'
       check_moderator!
     end

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'moderator/:id/new' => 'moderator#make_new', as: :make_new
   get 'moderator/users' => 'moderator#users', as: :users
 
+  get ':encoded_name' => 'people#show_by_name', as: :person_by_name
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

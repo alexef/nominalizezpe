@@ -1,0 +1,90 @@
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="span9">
+        <h1><%= @person.name %>
+            <div class="pozitive vote">
+                <span class="icon"></span>
+                <small><%=@person.pozitive_votes.count %></small>
+            </div>
+            <div class="negative vote">
+                <span class="icon"></span>
+                <small><%=@person.negative_votes.count %></small>
+            </div>
+        </h1>
+
+        <div>
+          <h4>Despre</h4>
+
+          <p><%= @person.description %></p>
+        </div>
+        <div class="social">
+          <p>Pagini:
+          <% if @person.fb_url? %>
+              <a href="<%= @person.fb_url %>">facebook</a>
+          <% end %>
+          <% if @person.linkedin_url? %>
+                <a href="<%= @person.linkedin_url %>">linkedin</a>
+          <% end %>
+          </p>
+        </div>
+        <div style="display:none">
+          <h4>Pozitia</h4>
+
+          <ul>
+            <% @person.openings.each do |op| %>
+                <li><%= op.name %> - <%= Vote.where(:person => @person, :opening => op).count %> voturi</li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="span3">
+        <a href class="thumbnail">
+          <img src="<%= @person.safe_picture_url %>"/>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p id="notice" class="txt-middle"> <%= notice %> </p>
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+          <% if user_signed_in? %>
+           <% if current_user.votes.exists?(:person => @person) %>
+            <div class="txt-middle">
+              <%= link_to 'Renunta la vot', current_user.votes.find_by(:person => @person), :method => :delete, data: { confirm: 'Esti sigur ca vrei sa renunti la vot?'}, :class => 'btn btn-danger'%>
+            </div>
+            <% else %>
+              <%= form_for Vote.new do |f| %>
+               <%= f.hidden_field :person_id, :value => @person.id %>
+                <div class="field padding-top inline" style="display: none">
+                    <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
+                </div>
+                <div class="field padding-top" style="width: 100%">
+                    <%= f.text_area :comment, :placeholder => 'Motivatie', :style=> 'width:100%' %>
+                </div>
+                <div class="actions inline" style="padding-top: 20px; float: left">
+                    <%= f.submit 'De acord', :class => 'btn btn-primary', data: { :confirm => 'Prin acest vot esti de acord ca acest om sa te reprezinte!'} %>
+                </div>
+                <div class="actions inline" style="padding-top: 20px; float: right">
+                    <%= f.submit 'Nu sunt de acord', :class => 'btn btn-danger', data: {:confirm => 'Prin acest vot nu crezi ca acest om poate sa te reprezinte!'} %>
+                </div>
+                <% end %>
+            <% end %>
+        <% else %>
+            <div class="txt-middle">
+              <p>Te rugam sa te loghezi cu contul de Facebook pentru a vota!</p>
+              <br/>
+
+              <p>O data logat vei avea dreptul la maxim 5 voturi.</p>
+              <br/>
+            </div>
+            <%= link_to '', user_omniauth_authorize_path(:facebook), :class => 'fb-login-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
