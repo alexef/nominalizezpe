@@ -55,7 +55,7 @@
           <% if user_signed_in? %>
            <% if current_user.votes.exists?(:person => @person) %>
             <div class="txt-middle">
-              <%= link_to 'Renunta la vot', current_user.votes.find_by(:person => @person), :method => :delete, data: { confirm: 'Are you sure?'}, :class => 'btn btn-danger'%>
+              <%= link_to 'Renunta la vot', current_user.votes.find_by(:person => @person), :method => :delete, data: { confirm: 'Esti sigur ca vrei sa renunti la vot?'}, :class => 'btn btn-danger'%>
             </div>
             <% else %>
               <%= form_for Vote.new do |f| %>
@@ -67,10 +67,10 @@
                     <%= f.text_area :comment, :placeholder => 'Motivatie', :style=> 'width:100%' %>
                 </div>
                 <div class="actions inline" style="padding-top: 20px; float: left">
-                    <%= f.submit 'De acord', :class => 'btn btn-primary' %>
+                    <%= f.submit 'De acord', :class => 'btn btn-primary', data: { :confirm => 'Prin acest vot esti de acord ca acest om sa te reprezinte!'} %>
                 </div>
                 <div class="actions inline" style="padding-top: 20px; float: right">
-                    <%= f.submit 'Nu sunt de acord', :class => 'btn btn-danger' %>
+                    <%= f.submit 'Nu sunt de acord', :class => 'btn btn-danger', data: {:confirm => 'Prin acest vot nu crezi ca acest om poate sa te reprezinte!'} %>
                 </div>
                 <% end %>
             <% end %>
