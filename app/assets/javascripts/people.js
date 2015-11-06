@@ -1,9 +1,13 @@
 var defaultImage;
-$(document).ready(function() {
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+function ready() {
     changeImageInput();
     $("#person_picture_url").change(changeImageInput);
     defaultImage = $("#person_image");
-});
+};
 
 function changeImageInput() {
     var pictureUrl = $("#person_picture_url").val();

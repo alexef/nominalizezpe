@@ -452,3 +452,8 @@ ul.plans {
     width: 30%;
     margin: auto;
 }
+
+.ui-widget-header {
+    background-color: ghostwhite !important;
+    border: 1px solid #BABABA !important;
+}

@@ -15,5 +15,6 @@
  *= require font-awesome
  *= require base
  *= require blue
+ *= require datatables.min
  *= require_self
  */
