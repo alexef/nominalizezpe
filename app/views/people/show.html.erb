@@ -54,7 +54,9 @@
       <div class="span12">
           <% if user_signed_in? %>
            <% if current_user.votes.exists?(:person => @person) %>
+            <div class="txt-middle">
               <%= link_to 'Renunta la vot', current_user.votes.find_by(:person => @person), :method => :delete, data: { confirm: 'Are you sure?'}, :class => 'btn btn-danger'%>
+            </div>
             <% else %>
               <%= form_for Vote.new do |f| %>
                <%= f.hidden_field :person_id, :value => @person.id %>
@@ -68,7 +70,7 @@
                     <%= f.submit 'De acord', :class => 'btn btn-primary' %>
                 </div>
                 <div class="actions inline" style="padding-top: 20px; float: right">
-                    <%= f.submit 'Nu sunt de acord', :class => 'btn btn-primary' %>
+                    <%= f.submit 'Nu sunt de acord', :class => 'btn btn-danger' %>
                 </div>
                 <% end %>
             <% end %>
