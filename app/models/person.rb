@@ -5,6 +5,9 @@ class Person < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
+  validates_presence_of :first_name, :last_name, :picture_url, :message => "este obligatoriu"
+  validates :picture_url, format: {with: URI.regexp, message: 'URL invalid' }
+
   def name
     first_name + ' ' + last_name
   end

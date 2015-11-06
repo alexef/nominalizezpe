@@ -443,3 +443,12 @@ ul.plans {
 #new_person textarea {
     width: 100%;
 }
+
+.field_with_errors input {
+    border: 1px red solid;
+}
+
+#new_vote {
+    width: 30%;
+    margin: auto;
+}

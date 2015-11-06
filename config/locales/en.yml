@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  errors:
+    models:
+      person:
+        attributes:
+          firs_name:
+            blank: "este obligatoriu"
+    messages:
+      presence: "Acest camp este obligatoriu"
   hello: "Hello world"

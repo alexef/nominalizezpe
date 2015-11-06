@@ -38,7 +38,7 @@ class PeopleController < ApplicationController
         format.html { redirect_to @person, notice: 'Iti multumim pentru propunere!' }
         format.json { render :show, status: :created, location: @person }
       else
-        format.html { redirect_to result_path, notice: 'Poti propune doar 5 persoane! Daca nu ai depasit aceasta limita te rugam sa ne contactezi!' }
+        format.html { redirect_to :back, notice: 'Poti propune doar 5 persoane! Daca nu ai depasit aceasta limita te rugam sa ne contactezi!' }
         format.json { render json: @person.errors, status: :unprocessable_entity}
       end
     end

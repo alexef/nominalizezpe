@@ -51,13 +51,10 @@
             <% else %>
               <%= form_for Vote.new do |f| %>
                <%= f.hidden_field :person_id, :value => @person.id %>
-                <div class="inline">
-                    <h5>Votează</h5>
-                </div>
                 <div class="field padding-top inline" style="display: none">
                     <%= f.collection_select :opening_id, @person.openings, :id, :name, :prompt => 'Pentru pozitia' %>
                 </div>
-                <div class="field padding-top">
+                <div class="field padding-top inline">
                     <%= f.text_area :comment, :placeholder => 'Motivatie' %>
                 </div>
                 <div class="actions inline" style="padding-top: 20px; float: right">
